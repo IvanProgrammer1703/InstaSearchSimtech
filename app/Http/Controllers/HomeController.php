@@ -28,9 +28,8 @@ class HomeController extends Controller
         }
         else
         {
-        $tag = str_replace(' ','',$tag);
-        $tag = str_replace('#','',$tag);
-        $medias = $home->instagram($tag);
+        $num = $request->input('num');
+        $medias = $home->instagram($tag,$num);
         return view('home',compact('medias'));
         }
     }

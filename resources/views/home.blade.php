@@ -10,10 +10,25 @@
                         @csrf
                         <br>
                         <div class="form-group container">
-                            <input type="text" class="form-control" name="tag" aria-describedby="emailHelp" placeholder="Enter hashtag">
-                            <small id="emailHelp" class="form-text text-muted">We will never share your requests with anyone else.</small>
+                            <div class="input-group flex-nowrap">
+                                <div class="input-group-prepend">
+                                    <span class="input-group-text" id="addon-wrapping">#</span>
+                                </div>
+                                <input type="text" class="form-control" placeholder="hashtag" aria-label="Username" aria-describedby="addon-wrapping" name="tag">
+                            <div class="input-group-prepend">
+                                <select class="custom-select" id="inputGroupSelect01" name="num" style="border-radius: 0px 4px 4px 0px">
+                                    <option selected>Choose...</option>
+                                    <option value="9">9</option>
+                                    <option value="18">18</option>
+                                    <option value="36">36</option>
+                                </select>
+                            </div>
+                            </div>
+                            <small id="emailHelp" class="form-text text-muted">We will never share your requests with anyone else.
+                            </small>
                         </div>
                         <button type="submit" class="btn btn-dark" style="margin-left:16px">Search</button>
+                        <br>
                     </form>
                     @if(isset($medias))
                     @foreach($medias as $media)
