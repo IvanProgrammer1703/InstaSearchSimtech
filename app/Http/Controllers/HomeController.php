@@ -28,7 +28,14 @@ class HomeController extends Controller
         }
         else
         {
-        $num = $request->input('num');
+            if($request->input('num') == '')
+            {
+                $num = $request->input('num');
+            }
+            else{
+
+                $num = 9;
+            }
         $medias = $home->instagram($tag,$num);
         return view('home',compact('medias'));
         }

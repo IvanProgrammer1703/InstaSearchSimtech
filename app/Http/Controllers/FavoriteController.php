@@ -3,9 +3,10 @@
 namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\DB;
 use App\Favorite;
 use App\User;
-use App\Home;
+use App\Home;   
 use Auth;
 
 class FavoriteController extends Controller
@@ -45,6 +46,9 @@ class FavoriteController extends Controller
      */
     public function store(Request $request)
     {
+        $home = new Home;
+        $num = $request->input('number');
+        $home = DB::table('homes')->where('id',$num)->delete();
         return redirect()->back();
     }
 

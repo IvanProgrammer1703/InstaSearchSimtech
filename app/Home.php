@@ -6,17 +6,16 @@ use Illuminate\Database\Eloquent\Model;
 
 class Home extends Model
 {
-    public function instagram($tag,$num = 9){
-    	
+    public function instagram($tag,$num)
+    {
+
+            
         	$tag = str_replace(' ','',$tag);
         	$tag = str_replace('#','',$tag);
  			$instagram = new \InstagramScraper\Instagram();
-    		try{
-        		$medias = $instagram->getMediasByTag($tag,(integer)$num);
-    		}
-    		catch(Exception $e){
-
-    		}
+            
+            $medias = $instagram->getMediasByTag($tag,(integer)$num);
+    		
     		return $medias;
 	}
 
